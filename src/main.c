@@ -24,6 +24,7 @@ int main(void)
     // - modo de operação EDGE_PWM
     pwm_tpm_Init(TPM2, TPM_PLLFLL, TPM_MODULE, TPM_CLK, PS_128, EDGE_PWM);
     pwm_tpm_Init(TPM1, TPM_PLLFLL, TPM_MODULE, TPM_CLK, PS_128, EDGE_PWM);
+    pwm_tpm_Init(TPM0, TPM_PLLFLL, TPM_MODULE, TPM_CLK, PS_128, EDGE_PWM);
 
 
 
@@ -31,7 +32,12 @@ int main(void)
     // - modo TPM_PWM_H (nível alto durante o pulso)
     pwm_tpm_Ch_Init(TPM2, 0, TPM_PWM_H, GPIOB, 18);
     pwm_tpm_Ch_Init(TPM2, 1, TPM_PWM_H, GPIOB, 19);
+
     pwm_tpm_Ch_Init(TPM1, 0, TPM_PWM_H, GPIOE, 20);
+    pwm_tpm_Ch_Init(TPM1, 1, TPM_PWM_H, GPIOE, 21);
+
+    pwm_tpm_Ch_Init(TPM0, 3, TPM_PWM_H, GPIOE, 30);
+    pwm_tpm_Ch_Init(TPM0, 4, TPM_PWM_H, GPIOE, 31);
 
 
 
@@ -47,11 +53,24 @@ int main(void)
     {
     pwm_tpm_CnV(TPM2, 0, duty_80);
     pwm_tpm_CnV(TPM2, 1,duty_98);
+
+    pwm_tpm_CnV(TPM0, 3,1000);
+    pwm_tpm_CnV(TPM0, 4,1000);
+
     pwm_tpm_CnV(TPM1, 0,0);
+    pwm_tpm_CnV(TPM1, 1,0);
+
     k_msleep(SLEEP_TIME_MS);
+
     pwm_tpm_CnV(TPM2, 0, duty_100);
     pwm_tpm_CnV(TPM2, 1,duty_100);
+
     pwm_tpm_CnV(TPM1, 0,1000);
+    pwm_tpm_CnV(TPM1, 1,1000);
+
+    pwm_tpm_CnV(TPM0, 3,0);
+    pwm_tpm_CnV(TPM0, 4,0);
+
     k_msleep(SLEEP_TIME_MS);// O programa poderia alterar o duty cycle dinamicamente aqui se desejado
     }
 
