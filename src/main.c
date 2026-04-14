@@ -33,11 +33,11 @@ int main(void)
     pwm_tpm_Ch_Init(TPM2, 0, TPM_PWM_H, GPIOB, 18);
     pwm_tpm_Ch_Init(TPM2, 1, TPM_PWM_H, GPIOB, 19);
 
-    pwm_tpm_Ch_Init(TPM1, 0, TPM_PWM_H, GPIOE, 20);
-    pwm_tpm_Ch_Init(TPM1, 1, TPM_PWM_H, GPIOE, 21);
+    pwm_tpm_Ch_Init(TPM1, 0, TPM_PWM_H, GPIOE, 20); // IN1
+    pwm_tpm_Ch_Init(TPM1, 1, TPM_PWM_H, GPIOE, 21); // IN3
 
-    pwm_tpm_Ch_Init(TPM0, 3, TPM_PWM_H, GPIOE, 30);
-    pwm_tpm_Ch_Init(TPM0, 4, TPM_PWM_H, GPIOE, 31);
+    pwm_tpm_Ch_Init(TPM0, 3, TPM_PWM_H, GPIOE, 30); // IN2
+    pwm_tpm_Ch_Init(TPM0, 4, TPM_PWM_H, GPIOE, 31); // IN4
 
 
 
